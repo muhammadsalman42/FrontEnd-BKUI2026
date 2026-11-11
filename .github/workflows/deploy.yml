@@ -18,6 +18,7 @@ env:
 
 jobs:
   deploy:
+    if: github.repository == 'BKUI-2026/FrontEnd-BKUI2026'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
