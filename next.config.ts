@@ -16,7 +16,9 @@ function alamatLokal(): string[] {
 }
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // Vercel memakai adapter sendiri. Standalone khusus build Docker/VPS:
+  // Next.js 16.3 tidak menghasilkan root NFT saat adapter aktif.
+  output: process.env.VERCEL ? undefined : "standalone",
   /**
    * Izinkan dev server diakses dari device lain di jaringan yang sama (HP,
    * tablet, laptop partner) lewat http://<ip-lokal>:3001.
